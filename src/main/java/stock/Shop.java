@@ -54,4 +54,15 @@ public class Shop {
         }
         return pianos;
     }
+
+    public ArrayList<Guitar> listGuitars() {
+        ArrayList<Guitar> guitars = new ArrayList<>();
+        for (Product product : stock) {
+            if (product instanceof Guitar) {
+                Guitar guitar = (Guitar) product;
+                guitars.add(guitar);
+            }
+        }
+        return guitars;
+    }
 }

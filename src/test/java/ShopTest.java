@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import stock.Shop;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
@@ -57,7 +58,7 @@ public class ShopTest {
 //    can get all of Instrument class
 
     @Test
-    public void canGetAllOfAnInstrument() {
+    public void canGetAllPianos() {
         shop.addStock(guitar);
         assertFalse(shop.listPianos().contains(piano));
         assertEquals(0, shop.listPianos().size());
@@ -66,12 +67,22 @@ public class ShopTest {
         assertEquals(1, shop.listPianos().size());
     }
 
+    @Test
+    public void canGetAllGuitars() {
+        shop.addStock(piano);
+        ArrayList<Guitar> guitars = shop.listGuitars();
+        assertFalse(guitars.contains(guitar));
+        assertEquals(0, guitars.size());
+        shop.addStock(guitar);
+//        update guitars
+        guitars = shop.listGuitars();
+        assert(guitars.contains(guitar));
+        assertEquals(1, guitars.size());
+    }
 
-
-
+    //    can get all of Piano Type
 //    can get all of Instrument Type
 //    can get all of Guitar type
-//    can get all of Piano Type
 //    can get all accessories
 //    can get a product based on name
 //    can update a products quantity
