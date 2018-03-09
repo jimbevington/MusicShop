@@ -18,11 +18,15 @@ public class Shop {
         return this.stock.size();
     }
 
+    public ArrayList<Product> getStock() {
+        return stock;
+    }
+
     public void addStock(Product product) {
         this.stock.add(product);
     }
 
-    public ArrayList<Product> getStock() {
-        return stock;
+    public void removeStock(Product product) {
+        stock.remove(product);
     }
 }

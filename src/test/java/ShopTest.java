@@ -8,10 +8,13 @@ import static org.junit.Assert.assertEquals;
 public class ShopTest {
 
     private Shop shop;
+    private Guitar guitar;
 
     @Before
     public void setUp() throws Exception {
         shop = new Shop("Vibrant Matter");
+        Guitar guitar = new Guitar("Jazz", "Fender", 4, 1500.00, 3000.00,
+                "aquamarine", "graphene", GuitarType.BASS, 4);
     }
 
     @Test
@@ -21,17 +24,21 @@ public class ShopTest {
 
     @Test
     public void canAddStock(){
-        Guitar guitar = new Guitar("Jazz", "Fender", 4, 1500.00, 3000.00,
-                "aquamarine", "graphene", GuitarType.BASS, 4);
+
         shop.addStock(guitar);
         assertEquals(1, shop.stockCount());
         assert(shop.getStock().contains(guitar));
     }
 
-
-    //    has no stock
-//    can add stock
 //    can remove stock
+
+    @Test
+    public void canRemoveStock() {
+        shop.addStock(guitar);
+        shop.removeStock(guitar);
+        assertEquals(0, shop.stockCount());
+    }
+
 
 //    can get all of X
 //    can get a product based on name
