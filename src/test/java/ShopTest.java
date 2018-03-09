@@ -12,7 +12,6 @@ import stock.Shop;
 import stock.Instrument;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -150,16 +149,5 @@ public class ShopTest {
         shop.updateStock(guitar, 8);
         assertEquals(8, guitar.getQuantity());
     }
-
-//    @Test
-//    public void canSellAnItem() {
-//        shop.addStock(guitar);
-//        shop.sell(guitar);
-//        assertEquals(3, guitar.getQuantity());
-//    }
-
-    //    can sell an item, if out of stock, remove from stock
-
-//    if adding a product that is the same as another product, it updates the quantity
 
 }
