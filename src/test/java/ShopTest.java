@@ -4,8 +4,12 @@ import instruments.Guitar;
 import instruments.Piano;
 import org.junit.Before;
 import org.junit.Test;
+import stock.Shop;
+
+import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class ShopTest {
 
@@ -15,7 +19,7 @@ public class ShopTest {
 
     @Before
     public void setUp() throws Exception {
-        shop = new Shop("Vibrant Matter");
+        shop = new Shop("Rumpy Trumpy");
         guitar = new Guitar("Jazz", "Fender", 4, 1500.00, 3000.00,
                 "aquamarine", "graphene", GuitarType.BASS, 4);
         piano = new Piano("EB-56", "Kawai", 1, 1200.00, 4500.00,
@@ -50,8 +54,20 @@ public class ShopTest {
         assertEquals(4800.00, shop.totalProfit(), 0.01);
     }
 
-
 //    can get all of Instrument class
+
+    @Test
+    public void canGetAllOfAnInstrument() {
+        shop.addStock(guitar);
+        assertFalse(shop.listPianos().contains(piano));
+        assertEquals(0, shop.listPianos().size());
+        shop.addStock(piano);
+        assert(shop.listPianos().contains(piano));
+        assertEquals(1, shop.listPianos().size());
+    }
+
+
+
 
 //    can get all of Instrument Type
 //    can get all of Guitar type

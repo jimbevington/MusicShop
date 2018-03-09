@@ -1,7 +1,11 @@
+package stock;
+
 import instruments.Guitar;
+import instruments.Piano;
 import stock.Product;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Shop {
 
@@ -37,5 +41,17 @@ public class Shop {
             total += profit;
         }
         return total;
+    }
+
+
+    public ArrayList<Piano> listPianos() {
+        ArrayList<Piano> pianos = new ArrayList<>();
+        for (Product product : stock) {
+            if (product instanceof Piano) {
+                Piano piano = (Piano) product;
+                pianos.add(piano);
+            }
+        }
+        return pianos;
     }
 }
