@@ -23,4 +23,14 @@ public class GuitarTest {
     public void canGetQuantity() {
         assertEquals(2, guitar.getQuantity());
     }
+
+    @Test
+    public void canPlay() {
+        assertEquals("Karrrrrooooeeew!", guitar.play());
+    }
+
+    @Test
+    public void canCalculateMarkup() {
+        assertEquals(700.00, guitar.calculateMarkup(), 0.01);
+    }
 }
