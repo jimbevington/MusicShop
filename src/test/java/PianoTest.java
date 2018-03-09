@@ -1,4 +1,3 @@
-import enums.InstrumentType;
 import enums.PianoType;
 import instruments.Piano;
 import org.junit.Before;
