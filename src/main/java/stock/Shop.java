@@ -1,5 +1,6 @@
 package stock;
 
+import enums.GuitarType;
 import instruments.Guitar;
 import instruments.Piano;
 import stock.Product;
@@ -64,5 +65,18 @@ public class Shop {
             }
         }
         return guitars;
+    }
+
+    public ArrayList<Guitar> listGuitarType(GuitarType type) {
+        ArrayList<Guitar> typeList = new ArrayList<>();
+        for (Product product : stock) {
+            if (product instanceof Guitar) {
+                Guitar guitar = (Guitar) product;
+                if (guitar.getType() == type){
+                    typeList.add(guitar);
+                }
+            }
+        }
+        return typeList;
     }
 }

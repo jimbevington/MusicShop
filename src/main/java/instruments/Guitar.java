@@ -23,4 +23,8 @@ public class Guitar extends Instrument {
     public String play() {
         return "Karrrrrooooeeew!";
     }
+
+    public GuitarType getType() {
+        return guitarType;
+    }
 }

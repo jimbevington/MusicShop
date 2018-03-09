@@ -17,12 +17,15 @@ public class ShopTest {
     private Shop shop;
     private Guitar guitar;
     private Piano piano;
+    private Guitar electric;
 
     @Before
     public void setUp() throws Exception {
         shop = new Shop("Rumpy Trumpy");
         guitar = new Guitar("Jazz", "Fender", 4, 1500.00, 3000.00,
                 "aquamarine", "graphene", GuitarType.BASS, 4);
+        electric = new Guitar("Speedster", "Maranello", 2, 450.00, 500.00,
+                "green", "antelope tusk", GuitarType.ELECTRIC, 12 );
         piano = new Piano("EB-56", "Kawai", 1, 1200.00, 4500.00,
                 "white", "mahogany", PianoType.UPRIGHT, 56);
     }
@@ -78,6 +81,16 @@ public class ShopTest {
         guitars = shop.listGuitars();
         assert(guitars.contains(guitar));
         assertEquals(1, guitars.size());
+    }
+
+    @Test
+    public void canGetAllOfAnInstrumentType() {
+        shop.addStock(guitar);
+        shop.addStock(piano);
+        shop.addStock(electric);
+        ArrayList<Guitar> all_electrics = shop.listGuitarType(GuitarType.ELECTRIC);
+        assert(all_electrics.contains(electric));
+        assertEquals(1, all_electrics.size());
     }
 
     //    can get all of Piano Type
