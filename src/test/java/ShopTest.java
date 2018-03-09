@@ -29,14 +29,16 @@ public class ShopTest {
     @Before
     public void setUp() throws Exception {
         shop = new Shop("Rumpy Trumpy");
-        guitar = new Guitar("Jazz", "Fender", 4, 1500.00, 3000.00,
+        guitar = new Guitar("Jazz", "Fender", 4, 1500.00, 3000.53,
                 "aquamarine", "graphene", GuitarType.BASS, 4);
         electric = new Guitar("Speedster", "Maranello", 2, 450.00, 500.00,
                 "green", "antelope tusk", GuitarType.ELECTRIC, 12 );
         piano = new Piano("EB-56", "Kawai", 1, 1200.00, 4500.00,
                 "white", "mahogany", PianoType.UPRIGHT, 56);
-        sticks = new DrumStick("ClownHands", "Sono", 2, 2.00, 5, "6B");
-        music = new SheetMusic("Metal Machine Music", "Sire", 9, 7.00, 12.00, "Lou Reed");
+        sticks = new DrumStick("ClownHands", "Sono", 2, 2.00, 5,
+                "6B");
+        music = new SheetMusic("Metal Machine Music", "Sire", 9, 7.00,
+                12.00, "Lou Reed");
     }
 
     @Test
@@ -64,7 +66,7 @@ public class ShopTest {
     public void canGetAllPotentialProfit() {
         shop.addStock(guitar);
         shop.addStock(piano);
-        assertEquals(4800.00, shop.totalProfit(), 0.01);
+        assertEquals(4800.53, shop.totalProfit(), 0.01);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -139,8 +141,10 @@ public class ShopTest {
         assertFalse(lowStock.contains(null));
     }
 
-    //    can update a products quantity
+//    can update a products quantity
+
+//    can sell an item, if out of stock, remove from stock
+
 //    if adding a product that is the same as another product, it updates the quantity
 
-//   can get list of Low Stock
 }

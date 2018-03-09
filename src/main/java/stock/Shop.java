@@ -6,13 +6,14 @@ import instruments.Guitar;
 import instruments.Piano;
 import stock.Product;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class Shop {
 
     private String name;
     private ArrayList<Product> stock;
+    DecimalFormat formatPence = new DecimalFormat("#.00");
 
     public Shop(String name) {
         this.name = name;
@@ -40,7 +41,8 @@ public class Shop {
         double total = 0;
         for (Product product : stock) {
             double profit = product.calculateMarkup();
-            total += profit;
+            double formattedProfit = Double.parseDouble(formatPence.format(profit));
+            total += formattedProfit;
         }
         return total;
     }
