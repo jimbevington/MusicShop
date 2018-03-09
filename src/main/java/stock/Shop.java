@@ -115,4 +115,16 @@ public class Shop {
         }
         return accessories;
     }
+
+    public ArrayList<Product> getLowStock() {
+
+        ArrayList<Product> lowStock = new ArrayList<>();
+
+        for (Product product : stock) {
+            if (product.getQuantity() <= 5) {
+                lowStock.add(product);
+            }
+        }
+        return lowStock;
+    }
 }
