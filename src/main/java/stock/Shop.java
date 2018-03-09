@@ -85,7 +85,7 @@ public class Shop {
         return typeList;
     }
 
-
+//  REFACTORED to make use of listInstrumentType
     public ArrayList<Guitar> listGuitarType(GuitarType type) {
 
 //        make an ArrayList to return
@@ -102,4 +102,17 @@ public class Shop {
             }
         return typeList;
         }
+
+    public ArrayList<Product> getAccessories() {
+
+        ArrayList<Product> accessories = new ArrayList<>();
+
+        for (Product product : stock) {
+//            check product IS NOT an Instrument
+            if (!(product instanceof Instrument)) {
+                accessories.add(product);
+            }
+        }
+        return accessories;
+    }
 }

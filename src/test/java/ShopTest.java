@@ -1,3 +1,5 @@
+import accessories.DrumStick;
+import accessories.SheetMusic;
 import enums.GuitarType;
 import enums.InstrumentType;
 import enums.PianoType;
@@ -21,6 +23,8 @@ public class ShopTest {
     private Guitar guitar;
     private Piano piano;
     private Guitar electric;
+    private DrumStick sticks;
+    private SheetMusic music;
 
     @Before
     public void setUp() throws Exception {
@@ -31,6 +35,8 @@ public class ShopTest {
                 "green", "antelope tusk", GuitarType.ELECTRIC, 12 );
         piano = new Piano("EB-56", "Kawai", 1, 1200.00, 4500.00,
                 "white", "mahogany", PianoType.UPRIGHT, 56);
+        sticks = new DrumStick("ClownHands", "Sono", 2, 2.00, 5, "6B");
+        music = new SheetMusic("Metal Machine Music", "Sire", 9, 7.00, 12.00, "Lou Reed");
     }
 
     @Test
@@ -111,8 +117,30 @@ public class ShopTest {
         assertEquals(InstrumentType.GUITAR, guitars.get(0).getInstrumentType());
     }
 
-//    can get all accessories
-//    can get a product based on name
-//    can update a products quantity
+    @Test
+    public void canGetAllAccessories() {
+        shop.addStock(sticks);
+        shop.addStock(music);
+        ArrayList<Product> accessories = shop.getAccessories();
+        assertEquals(2, accessories.size());
+        assert(accessories.contains(sticks));
+        assert(accessories.contains(music));
+    }
+
+    @Test
+    public void canGetLowStock() {
+        shop.addStock(guitar);
+        shop.addStock(piano);
+        shop.addStock(electric);
+        shop.addStock(sticks);
+        shop.addStock(music);
+        ArrayList<Product> lowStock = shop.getLowStock();
+        assertEquals(4, lowStock.size());
+        assertFalse(lowStock.contains(null));
+    }
+
+    //    can update a products quantity
 //    if adding a product that is the same as another product, it updates the quantity
+
+//   can get list of Low Stock
 }
