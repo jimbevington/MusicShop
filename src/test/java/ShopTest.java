@@ -1,10 +1,13 @@
 import enums.GuitarType;
+import enums.InstrumentType;
 import enums.PianoType;
 import instruments.Guitar;
 import instruments.Piano;
 import org.junit.Before;
 import org.junit.Test;
+import stock.Product;
 import stock.Shop;
+import stock.Instrument;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -58,7 +61,12 @@ public class ShopTest {
         assertEquals(4800.00, shop.totalProfit(), 0.01);
     }
 
-//    can get all of Instrument class
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //// in creating additional methods, I'm experimenting with listing items by checking them in different ways, i.e
+    //// by Class, InstrumentType, etc. Thus, I've not tried to be totally comprehensive, just try out different
+    //// approaches.
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     @Test
     public void canGetAllPianos() {
@@ -84,7 +92,7 @@ public class ShopTest {
     }
 
     @Test
-    public void canGetAllOfAnInstrumentType() {
+    public void canGetAllOfAGuitarType() {
         shop.addStock(guitar);
         shop.addStock(piano);
         shop.addStock(electric);
@@ -93,8 +101,17 @@ public class ShopTest {
         assertEquals(1, all_electrics.size());
     }
 
-    //    can get all of Piano Type
-//    can get all of Instrument Type
+    @Test
+    public void canGetAllOfAnInstrumentType() {
+        shop.addStock(guitar);
+        shop.addStock(electric);
+        shop.addStock(piano);
+        ArrayList<Instrument> guitars = shop.listInstrumentType(InstrumentType.GUITAR);
+        assertEquals(2, guitars.size());
+        assertEquals(InstrumentType.GUITAR, guitars.get(0).getInstrumentType());
+    }
+
+    //    can get all of Instrument Type
 //    can get all of Guitar type
 //    can get all accessories
 //    can get a product based on name

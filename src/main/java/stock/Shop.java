@@ -1,6 +1,7 @@
 package stock;
 
 import enums.GuitarType;
+import enums.InstrumentType;
 import instruments.Guitar;
 import instruments.Piano;
 import stock.Product;
@@ -44,6 +45,7 @@ public class Shop {
         return total;
     }
 
+//    list by Instrument Class
 
     public ArrayList<Piano> listPianos() {
         ArrayList<Piano> pianos = new ArrayList<>();
@@ -67,6 +69,22 @@ public class Shop {
         return guitars;
     }
 
+
+    public ArrayList<Instrument> listInstrumentType(InstrumentType type) {
+        ArrayList<Instrument> typeList = new ArrayList<>();
+        for (Product product : stock){
+            if (product instanceof Instrument) {
+                Instrument instrument = (Instrument) product;
+                if (instrument.getInstrumentType() == type) {
+                    typeList.add(instrument);
+                }
+            }
+        }
+        return typeList;
+    }
+
+
+//    could refactor this one to use the above one
     public ArrayList<Guitar> listGuitarType(GuitarType type) {
         ArrayList<Guitar> typeList = new ArrayList<>();
         for (Product product : stock) {

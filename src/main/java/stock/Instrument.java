@@ -16,4 +16,8 @@ public abstract class Instrument extends Product implements Playable {
         this.colour = colour;
         this.material = material;
     }
+
+    public InstrumentType getInstrumentType() {
+        return instrumentType;
+    }
 }
