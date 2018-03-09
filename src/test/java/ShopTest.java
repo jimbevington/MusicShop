@@ -66,8 +66,9 @@ public class ShopTest {
     public void canGetAllPotentialProfit() {
         shop.addStock(guitar);
         shop.addStock(piano);
-        assertEquals(4800.53, shop.totalProfit(), 0.01);
+        assertEquals(9302.12, shop.totalProfit(), 0.01);
     }
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //// in creating additional methods, I'm experimenting with listing items by checking them in different ways, i.e
@@ -143,7 +144,21 @@ public class ShopTest {
 
 //    can update a products quantity
 
-//    can sell an item, if out of stock, remove from stock
+    @Test
+    public void canUpdateStock() {
+        shop.addStock(guitar);
+        shop.updateStock(guitar, 8);
+        assertEquals(8, guitar.getQuantity());
+    }
+
+//    @Test
+//    public void canSellAnItem() {
+//        shop.addStock(guitar);
+//        shop.sell(guitar);
+//        assertEquals(3, guitar.getQuantity());
+//    }
+
+    //    can sell an item, if out of stock, remove from stock
 
 //    if adding a product that is the same as another product, it updates the quantity
 

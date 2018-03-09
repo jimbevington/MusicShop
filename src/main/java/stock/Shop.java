@@ -38,14 +38,18 @@ public class Shop {
     }
 
     public double totalProfit() {
+
         double total = 0;
         for (Product product : stock) {
-            double profit = product.calculateMarkup();
-            double formattedProfit = Double.parseDouble(formatPence.format(profit));
-            total += formattedProfit;
+//            calculate profit for each item: markup * quantity
+            double profit = product.calculateMarkup() * product.getQuantity();
+//            add it to running total
+            total += profit;
         }
-        return total;
+//            format double to 2 decimal places and convert it to Double
+        return Double.parseDouble(formatPence.format(total));
     }
+
 
 //    list by Instrument Class
 
@@ -129,4 +133,13 @@ public class Shop {
         }
         return lowStock;
     }
+
+    public void updateStock(Product product, int newQuantity) {
+        for (Product prod : stock) {
+            if (prod.equals(product)) {
+                prod.setQuantity(newQuantity);
+            }
+        }
+    }
+
 }
