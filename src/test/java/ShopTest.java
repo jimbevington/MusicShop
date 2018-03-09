@@ -111,8 +111,6 @@ public class ShopTest {
         assertEquals(InstrumentType.GUITAR, guitars.get(0).getInstrumentType());
     }
 
-    //    can get all of Instrument Type
-//    can get all of Guitar type
 //    can get all accessories
 //    can get a product based on name
 //    can update a products quantity

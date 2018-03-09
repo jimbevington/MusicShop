@@ -71,7 +71,9 @@ public class Shop {
 
 
     public ArrayList<Instrument> listInstrumentType(InstrumentType type) {
+
         ArrayList<Instrument> typeList = new ArrayList<>();
+
         for (Product product : stock){
             if (product instanceof Instrument) {
                 Instrument instrument = (Instrument) product;
@@ -84,17 +86,20 @@ public class Shop {
     }
 
 
-//    could refactor this one to use the above one
     public ArrayList<Guitar> listGuitarType(GuitarType type) {
+
+//        make an ArrayList to return
         ArrayList<Guitar> typeList = new ArrayList<>();
-        for (Product product : stock) {
-            if (product instanceof Guitar) {
-                Guitar guitar = (Guitar) product;
-                if (guitar.getType() == type){
-                    typeList.add(guitar);
+//        get all the Guitars
+        ArrayList<Instrument> guitars = listInstrumentType(InstrumentType.GUITAR);
+
+//        iterate through Guitars, check their type
+        for (Instrument guitar : guitars) {
+                Guitar gtr = (Guitar) guitar;
+                if (gtr.getType() == type){
+                    typeList.add(gtr);
                 }
             }
-        }
         return typeList;
-    }
+        }
 }
