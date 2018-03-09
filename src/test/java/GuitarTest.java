@@ -12,13 +12,9 @@ public class GuitarTest {
 
     @Before
     public void setUp() throws Exception {
-        guitar = new Guitar("G300", "G & L", 2, 800.00, 1500.00,
-                            InstrumentType.GUITAR, "black", "maple", GuitarType.BASS, 4);
+        guitar = new Guitar("G300", "G & L", 2, 800.00, 1500.00, "black", "maple", GuitarType.BASS, 4);
     }
 
-//    test can play it
-//    can calculate markup
-//    can get quantity
     @Test
     public void canGetQuantity() {
         assertEquals(2, guitar.getQuantity());
