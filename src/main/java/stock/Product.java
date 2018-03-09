@@ -24,4 +24,8 @@ public abstract class Product implements Sellable {
         double markup = sellPrice - buyPrice;
         return markup;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }
