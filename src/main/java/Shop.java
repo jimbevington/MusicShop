@@ -9,6 +9,11 @@ public class Shop {
 
     public Shop(String name) {
         this.name = name;
+//        shop starts with no Stock, has to be added
         this.stock = new ArrayList<>();
+    }
+
+    public int stockCount() {
+        return this.stock.size();
     }
 }
